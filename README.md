@@ -531,7 +531,7 @@ const subject = `
   <div class="foo">qux</div>
 `;
 
-x('select .title {0,} | read property textContent', subject);
+x('select .foo {0,} | read property textContent', subject);
 
 // [
 //   'bar',
@@ -558,12 +558,12 @@ const subject = `
 `;
 
 x([
-  'select article',
+  'select article {0,}',
   {
-    body: 'select .body | read property textContent'
+    body: 'select .body | read property textContent',
     title: 'select .title | read property textContent'
   }
-]);
+], subject);
 
 // [
 //   {
